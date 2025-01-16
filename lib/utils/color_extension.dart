@@ -9,11 +9,8 @@ extension ColorExtension on Color {
   Color invertBrightness() {
     // Convert Color to HSLColor
     final hsl = toHSL();
-    // Provide color brightness multiplier depending on color brightness
-    final brightnessMultiplier = hsl.lightness > 0.5 ? 0.5 : 2;
     // Calculate adjusted brightness
-    final adjustedBrightness = hsl.lightness * brightnessMultiplier;
-
+    final adjustedBrightness = 1 - hsl.lightness;
     // Getting adjusted hsl color with adjusted lightness
     final adjustedHSL = hsl.withLightness(adjustedBrightness);
 
