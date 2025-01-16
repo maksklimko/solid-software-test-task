@@ -18,28 +18,25 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: BlocBuilder<HomeScreenCubit, HomeScreenState>(
-        bloc: context.read<HomeScreenCubit>(),
-        builder: (BuildContext context, HomeScreenState state) {
-          return GestureDetector(
-            onTap: () =>
-                context.read<HomeScreenCubit>().changeBackgroundColor(),
-            child: Scaffold(
-              backgroundColor: state.backgroundColor,
-              body: Center(
-                child: Text(
-                  StringsManager.homeScreenText,
-                  style: Theme.of(context)
-                      .textTheme
-                      .headlineMedium
-                      ?.copyWith(color: state.textColor),
-                ),
+    return BlocBuilder<HomeScreenCubit, HomeScreenState>(
+      bloc: context.read<HomeScreenCubit>(),
+      builder: (BuildContext context, HomeScreenState state) {
+        return GestureDetector(
+          onTap: () => context.read<HomeScreenCubit>().changeBackgroundColor(),
+          child: Scaffold(
+            backgroundColor: state.backgroundColor,
+            body: Center(
+              child: Text(
+                StringsManager.homeScreenText,
+                style: Theme.of(context)
+                    .textTheme
+                    .headlineMedium
+                    ?.copyWith(color: state.textColor),
               ),
             ),
-          );
-        },
-      ),
+          ),
+        );
+      },
     );
   }
 }
