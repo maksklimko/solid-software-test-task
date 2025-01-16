@@ -17,6 +17,11 @@ class ColorUtils {
     // Converting int to Color
     final randomColor = Color(randomNumber);
 
+    if (!isOpaque) {
+      // Returning solid color
+      return randomColor.withAlpha(ConstantsManager.maxColorAlphaValue);
+    }
+
     return randomColor;
   }
 }
