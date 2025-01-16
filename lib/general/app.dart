@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:solid_software_test_task/resources/strings_manager.dart';
-import 'package:solid_software_test_task/widgets/home_screen.dart';
+import 'package:solid_software_test_task/screens/home_screen/home_screen.dart';
+import 'package:solid_software_test_task/screens/home_screen/home_screen_cubit.dart';
 
 /// [App] widget is the root of application. It handles basic stuff like
 /// theming, routing, localization, etc.
@@ -10,9 +12,12 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       title: StringsManager.appName,
-      home: HomeScreen(),
+      home: BlocProvider(
+        create: (_) => HomeScreenCubit(),
+        child: const HomeScreen(),
+      ),
     );
   }
 }
