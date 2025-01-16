@@ -19,18 +19,4 @@ class ColorUtils {
 
     return randomColor;
   }
-
-  /// Calculates inverted color to provided [color]
-  Color getInvertedColor(Color color) {
-    final invertedRedValue = (1 - color.r) * 255;
-    final invertedGreenValue = (1 - color.g) * 255;
-    final invertedBlueValue = (1 - color.b) * 255;
-
-    return Color.fromRGBO(
-      invertedRedValue.round(),
-      invertedGreenValue.round(),
-      invertedBlueValue.round(),
-      1.0,
-    );
-  }
 }
